@@ -50,9 +50,9 @@ dependencies {
 }
 
 tasks {
-    options.release.set(17)
     val javaVersion = JavaVersion.VERSION_17
     compileJava {
+        options.release.set(17)
         options.encoding = "UTF-8"
         options.release.set(javaVersion.toString().toInt())
         sourceCompatibility = "$javaVersion"
