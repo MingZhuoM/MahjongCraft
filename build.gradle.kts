@@ -1,4 +1,5 @@
 plugins {
+    java
     id("fabric-loom")
     val kotlinVersion: String by System.getProperties()
     kotlin("jvm").version(kotlinVersion)
@@ -50,6 +51,9 @@ dependencies {
 }
 
 tasks {
+    toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17)) // 强制使用 JDK 17 编译
+        }
     val javaVersion = JavaVersion.VERSION_17
     compileJava {
         options.encoding = "UTF-8"
