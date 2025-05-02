@@ -51,7 +51,6 @@ dependencies {
 
 tasks {
     val javaVersion = JavaVersion.VERSION_17
-    jvmToolchain(17)
     compileJava {
         options.release.set(17)
         options.encoding = "UTF-8"
@@ -74,6 +73,9 @@ tasks {
         filesMatching("fabric.mod.json") { expand(mutableMapOf("version" to project.version)) }
     }
     java {
+        toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
         withSourcesJar()
