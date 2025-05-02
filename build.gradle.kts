@@ -51,6 +51,7 @@ dependencies {
 
 tasks {
     val javaVersion = JavaVersion.VERSION_17
+    jvmToolchain(17)
     compileJava {
         options.release.set(17)
         options.encoding = "UTF-8"
